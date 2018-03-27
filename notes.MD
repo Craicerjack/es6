@@ -1,5 +1,5 @@
 ### Check if variable exists using !!variable 
-This will convert to boolean and return false if 0, null, "", undefined, NaN
+This will convert to boolean and return `false` if `0`, `null`, `""`, `undefined`, `NaN`
 ```javascript 
 function Account(cash) {  
     this.cash = cash;
@@ -41,15 +41,15 @@ var getPrice = (count, tax) => count * 4.00 * (1 + tax);
 getPrice(2, 0.7); //returns 8.56PPPP
 
 ```  
-Arrow functions are mire about handling the scope of `this` in a function.  
-ES5 
-`document.addEventListener('click', function() { console.log(this); });`  // #document
-`var invoice = { number: 123, process: function() { console.log(this); }};`
-The above `this` applies to the element on which the event is attached and to the object 
+Arrow functions are more about handling the scope of `this` in a function.  
+##### ES5
+`document.addEventListener('click', function() { console.log(this); });  // #document`  
+`var invoice = { number: 123, process: function() { console.log(this); }};`  
+The above `this` applies to the element on which the event is attached and to the object   
 
-ES6
-`document.addEventListener('click', () => console.log(this) );`  // Window {...}
-`var invoice2 = { number: 123, process: () => console.log(this) };`
+##### ES6
+`document.addEventListener('click', () => console.log(this) );  // Window {...}`  
+`var invoice2 = { number: 123, process: () => console.log(this) };`  
 The above this is set to the context of the code that we are in, ie the global window object. it would be a function if it was function.
 
 ```javascript  
