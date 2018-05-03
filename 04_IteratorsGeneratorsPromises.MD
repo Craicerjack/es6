@@ -89,9 +89,6 @@ for (let id of process()) {
 }   
 ```
 
-## Yielding in Generators
-
-
 ## throw and return
 if an iterator `throws` something need to make sure that the generator can handle it or else the generator will terminate.  
 Calling `return` on an iterator is a clean way to wrap up the iterator without termniating it.  
