@@ -150,3 +150,5 @@ console.log(cons.size); 	// 2 - even though same stuff in objects, they are sepa
 ```
 
 ## Subclassing
+None of the compilers or polyfills can properly do subclassing.  
+Bit too bleeding edge to work in a production env right now, depending on market  

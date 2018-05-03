@@ -1,31 +1,15 @@
-let perks = new Set();
+var t = {
+	tableId: 99
+}
 
-perks.add('Car');
-perks.add('Super Long Vacation');
-perks.add('Car');
+// Two values returned as object and destructuring them into proxy and revoke. 
+let { proxy, revoke } = Proxy.revocable(t, {
+	get : function(target, propertyKey, receiver) {
+		// console.log('Property ' + propertyKey);
+		return Reflect.get(target, propertyKey, receiver) + 100;
+	}
+});
 
-console.log(perks.size);
-
-let otherPerks = new Set([
-	'car',
-	'flexibility',
-	'laptop'
-]);	
-
-console.log(otherPerks.size);
-
-let newPerks = new Set(otherPerks);
-console.log(newPerks); 	//Set { 'car', 'flexibility', 'laptop' }
-console.log(otherPerks.has('car')); 	//true
-console.log(otherPerks.has('space ship')); 	// false
-console.log(...newPerks.keys());	// car flexibility laptop
-console.log(...newPerks.values());	// car flexibility laptop
-console.log(...newPerks.entries());	// [ 'car', 'car' ] [ 'flexibility', 'flexibility' ] [ 'laptop', 'laptop' ]
-
-
-let cons = new Set([
-	{ id: 800 },
-	{ id: 800 }
-]);
-
-console.log(cons.size); 	// 2 - even though same stuff in objects, they are separate objects 
+console.log(proxy.tableId);		// 199
+revoke();
+console.log(proxy.tableId);		// TypeError: Cannot perform 'get' on a proxy that has been revoked
