@@ -26,6 +26,8 @@ connected && login();
 
 No hoisting occurs with `let`. 
 
+
+
 ##### Arrow Functions
 ```javascript
 // variable = input => output;
@@ -39,6 +41,13 @@ knight('Craicerjack'); // returns 'Sir Craicerjack';
 
 var getPrice = (count, tax) => count * 4.00 * (1 + tax);
 getPrice(2, 0.7); //returns 8.56PPPP
+
+
+let vals = [10, 20, 30, 40];
+let double = (x) => { return x*2 }
+let newVals = vals.map(double);
+console.log(newVals);
+console.log(vals.map(x => x*3));
 
 ```  
 Arrow functions are more about handling the scope of `this` in a function.  
@@ -65,7 +74,6 @@ The context of the above is the function.
 
 YOU CANNOT BIND A NEW OBJECT TO AN ARROW FUNCTION  
 You cannot change the context of `this` with `bind, call, apply` in an arrow function.  
-
 
 ##### Default Function Parameters
 ```javascript
@@ -96,6 +104,11 @@ Spread will break a string into characters
 var prices = [12, 20, 18];
 var maxPrice = Math.max(...prices);
 console.log(maxPrice); // returns 20
+
+
+let a = [20, 30, 40];
+let b = [10, 50];
+let newb = [10, ...a, 50];
 ```  
 
 ##### Object Literal Extensions
@@ -132,6 +145,10 @@ for (var item of categories) {};
  * You can iterate through the elements of an array, or the chars of a string
 
 ##### Template Literals
+Strings with embedded expressions.  
+`${}`  
+
+
 ```javascript
 let name = "Craicerjack";
 console.log(`Your name is - ${name}`); // logs 'Your name is - Craicerjack'
@@ -162,8 +179,3 @@ let { low: newLow, avrg: newAvrg, high: newHigh } = salary;
 Destructuring an array and assigning values to variables
 You can destructure an object using `{}` instead of `[]`
 Destructuring requires an iterator
-
-
-
-
-

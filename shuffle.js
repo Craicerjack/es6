@@ -17,9 +17,14 @@ function shuffle(array) {
   return array;
 }
 
-// Used like so
-var playa = shuffle(['mike', 'des', 'loco', 'car']);
-var country = shuffle(['russia/us', 'germany', 'uk', 'japan']);
-playa.forEach(function (val, idx) {
-  console.log(val, ' is playing: ', country[idx]);
-});
+function chooseSides(players, countries) {
+  let player = shuffle(players);
+  let country = shuffle(countries);
+  player.forEach(function (val, idx) {
+    console.log(val, ' is playing: ', country[idx]);
+  });
+}
+
+chooseSides(['mike', 'des', 'car'], ['ussr', 'germany', 'uk']);
+
+console.log('hello world'.repeat(6));
