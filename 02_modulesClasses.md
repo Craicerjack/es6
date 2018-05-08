@@ -110,6 +110,34 @@ let p = new SoftwareProject('Howdy Doody!');
 console.log("p", p);
 let pq = new SoftwareProject();
 console.log("pq", pq);
+
+
+
+Class Animal {
+	constructor(name, height) {
+		this.name = name;
+		this.height = height;
+	}
+
+	hello() {
+		console.log(`Hi. I'm ${this.name} from the Animal Kingdom.`);
+	}
+}
+
+class Lion extends Animal {
+	constructor(name, height, color) {
+		super(name, height);  	// pass the variables to the parent constructor
+		this.color = color;
+	}
+
+	// can override functions in the child class.  
+}
+
+let son = new Lion("Simba", 2, "Golden");
+console.log(son);
+
+
+
 ```
 If you dont use `super()` above then there is a `ReferenceError: this is not defined` thrown.  
 If you have a subclass that has a constructor you need t
@@ -119,6 +147,8 @@ To add properties to an instance use `this.property` in the constructor. Initial
 
 ## Static Members
 `static` keyword in ES6  
+Holding reuseable functions rather than data.  
+
 ```javascript
 class Project {
 	static getDefaultId() {
@@ -128,6 +158,15 @@ class Project {
 console.log(Project.getDefaultId());  // logs 0
 var p = new Project();
 console.log(p.getDefaultId());  // throws error. Static attached to class.
+
+
+class Calculator {
+	static multiply(a, b) {
+		return a*b;
+	}
+}
+
+console.log(Calculator.multiply(5, 7));	// 35
 
 ```
 
